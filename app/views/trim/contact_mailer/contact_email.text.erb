@@ -1,0 +1,15 @@
+You've been contacted via our website!
+
+Contact:
+<%= @contact.name %> <<%= @contact.email %>>
+
+Subject:
+<%= @contact.contact_subject.name %>
+
+Message:
+<%= @contact.message %>
+
+<% unless @contact.phone.blank?%>
+Phone Number: 
+<%= @contact.phone %>
+<% end %>

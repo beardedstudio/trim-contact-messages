@@ -1,0 +1,12 @@
+= semantic_form_for message, :url => Rails.application.routes.url_helpers.contact_messages_path do |f| 
+  = f.input :name
+  = f.input :email
+  = f.input :phone
+  = f.input :contact_subject, :as => :select, :collection => Trim::ContactSubject.all.map{|s| [s.name, s.id]}, :prompt => "Subject", :label => false
+  = f.input :message
+
+  = f.inputs :id => 'contact_message_attachments' do
+    = f.semantic_fields_for :attachments do |a|
+      = a.input :attachment, :label => "File Attachment (optional):"
+
+  = f.action :submit, label: "Contact Us!"
