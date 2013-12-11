@@ -2,7 +2,7 @@ require 'rails/generators/active_record'
 
 module Trim
   # This generator adds a migration for the User model
-  class InstallContactMessagesGenerator < TrimGenerator
+  class ContactMessagesGenerator < TrimGenerator
 
     include Rails::Generators::Migration
     source_root File.expand_path('../../templates', __FILE__)
