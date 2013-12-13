@@ -7,7 +7,7 @@ require "trim/contact-messages/version"
 Gem::Specification.new do |s|
   s.name        = "trim-contact-messages"
   s.version     = Trim::ContactMessages::VERSION
-  s.authors     = ["Mark Frey, Brett Bender, Dominic Dagradi, Michael Hellein"]
+  s.authors     = ["Brett Bender", "Mark Frey", "Patrick Fulton", "Dominic Dagradi"]
   s.email       = ["info@bearded.com"]
   s.homepage    = "http://www.bearded.com"
   s.summary     = "A simple contact form for Trim."
