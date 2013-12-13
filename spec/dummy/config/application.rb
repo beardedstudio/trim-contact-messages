@@ -10,7 +10,7 @@ require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
 require "trim"
-require "trim-contact-messages"
+require "trim/contact-messages"
 
 module Dummy
   class Application < Rails::Application
