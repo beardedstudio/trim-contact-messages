@@ -25,29 +25,23 @@ module Trim
       say "Added contact_subjects migration to db/migrate", MESSAGE_COLOR
     end
 
-    def create_contact_attachments
-      sleep(2)
-      migration_template "create_contact_attachments.rb", "db/migrate/create_contact_attachments.rb"
-
-      say "Added contact_attachments migration to db/migrate", MESSAGE_COLOR
+    def add_route_for_contact_messages
+      route("resources :contact_messages, :only => :create")
+      say "Added contact_messages routes to config/routes.rb", MESSAGE_COLOR
     end
 
-    def create_rakismet_config
+def create_rakismet_config
       sleep(2)
       create_file 'config/initializers/rakismet.rb'
       out = <<-out
 # if you don't have an akismet key, get one at https://akismet.com/signup
-
-#{Rails.application.class}.config.rakismet.key = 'your akismet key'
-#{Rails.application.class}.config.rakismet.url = 'http://yourdomain.com'
+if defined?(#{Rails.application.class}.config.rakismet)
+  #{Rails.application.class}.config.rakismet.key = 'your akismet key'
+  #{Rails.application.class}.config.rakismet.url = 'http://yourdomain.com'
+end
       out
 
       append_to_file 'config/initializers/rakismet.rb', out
-    end
-
-    def add_route_for_contact_messages
-      route("resources :contact_messages, :only => :create")
-      say "Added contact_messages routes to config/routes.rb", MESSAGE_COLOR
     end
 
     def migrate

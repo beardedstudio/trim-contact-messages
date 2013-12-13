@@ -1,7 +1,7 @@
 require 'machinist/active_record'
 
 Trim::ContactAttachment.blueprint do
-  attachment { get_testing_image }
+  attachment { get_attachment_file }
 end
 
 Trim::ContactMessage.blueprint do
@@ -48,8 +48,4 @@ Trim::Setting.blueprint do
     send("#{name}_body") { Trim::Setting.email_placeholder_string name }
     send("#{name}_subject") { name }
   end
-end
-
-def get_testing_image
-  File.new Rails.root.join("../support/test-image.jpg")
 end

@@ -13,11 +13,14 @@ module Trim
   end
 
   Trim.module_eval do
-    mattr_accessor :fooderp
-    @@fooderp = 'blerrch'
+    mattr_accessor :use_akismet
+    @@use_akismet = false
+
+    mattr_accessor :allow_attachments_for_contact_messages
+    @@allow_attachments_for_contact_messages = false
   end
 
 end
 
-require 'generators/trim/contact_messages_generator'
+Dir["generators/trim/*"].each{ |f| require f }
 require 'trim/contact-messages/engine'
