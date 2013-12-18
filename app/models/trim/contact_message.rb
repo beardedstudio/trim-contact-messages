@@ -47,7 +47,7 @@ module Trim
         self.is_spam = self.spam?
         
         # Should still create the object regardless of if it's spam or not
-        return true
+        true
       end
 
     end
@@ -63,8 +63,6 @@ module Trim
       after_create :handle_message_attachments
 
       def handle_message_attachments
-        # destroy attachments and their associated files
-        # if the message is flagged as spammy
         self.attachments.destroy_all if self.is_spam
       end
 
