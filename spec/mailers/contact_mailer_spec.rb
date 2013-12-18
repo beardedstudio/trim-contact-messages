@@ -27,26 +27,4 @@ describe 'Trim::ContactMailer' do
     end
   end
 
-  context 'with attachment' do
-    before :each do
-      Trim::ContactMailer.any_instance.stub(:read_attachment) do
-        File.read(get_attachment_file)
-      end
-
-      @setting = Trim::Setting.first || Trim::Setting.make!
-      @message  = Trim::ContactMessage.make! :with_attachment
-    end
-
-    it 'should send the attachment with the email' do
-      @mail = Trim::ContactMailer.contact_email(@message)
-
-      @mail.attachments.should have(1).attachment
-      
-      attachment = @mail.attachments[0]
-      attachment.content_type.should be_start_with('application/pdf')
-      attachment.filename.should == 'test-pdf.pdf'
-    end
-
-  end
-
 end

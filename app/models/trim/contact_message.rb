@@ -53,22 +53,6 @@ module Trim
     end
 
 
-    if Trim.allow_attachments_for_contact_messages
-
-      attr_accessible :attachments, :attachments_attributes
-
-      has_many :attachments, :class_name => 'Trim::ContactAttachment', :inverse_of => :contact_message, :dependent => :destroy
-      accepts_nested_attributes_for :attachments, :allow_destroy => true
-
-      after_create :handle_message_attachments
-
-      def handle_message_attachments
-        self.attachments.destroy_all if self.is_spam
-      end
-
-    end
-
-
     #
     # Rails Admin Config
     #
@@ -81,20 +65,7 @@ module Trim
       end
 
       show do
-        fields :message, :name, :email, :phone, :contact_subject
-        field :created_at
-        if Trim.allow_attachments_for_contact_messages
-          field :attachments do
-            label "Attachments"
-            pretty_value do 
-              value.map do |attachment|
-                title = attachment.attachment_file_name
-                title << " (#{attachment.attachment_content_type}, #{attachment.attachment_file_size} bytes)"
-                bindings[:view].link_to(title, attachment.attachment.url)
-              end.join.html_safe
-            end
-          end
-        end
+        fields :name, :email, :phone, :contact_subject, :created_at, :message
       end
 
       list do
