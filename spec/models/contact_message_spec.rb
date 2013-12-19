@@ -22,24 +22,5 @@ describe Trim::ContactMessage do
     end
 
   end
-
-  describe 'with attachments' do
-
-    it 'should create attachments if present' do
-      @message = Trim::ContactMessage.make! :with_attachment
-      @message.attachments.count.should == 1
-    end
-
-    it 'should destroy any attachments if flagged as spam' do
-      Trim::ContactMessage.any_instance.stub(:is_spam).and_return(true)
-
-      attachment = Trim::ContactAttachment.make( :attachment => (File.new Rails.root.join("../support/test-image.jpg")) )
-      @message = Trim::ContactMessage.make! :attachments => [attachment]
-
-      @message.attachments.count.should == 0
-      expect { Trim::ContactAttachment.find(attachment.id) }.to raise_error(ActiveRecord::RecordNotFound)
-    end
-
-  end
   
 end

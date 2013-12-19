@@ -42,4 +42,8 @@ RSpec.configure do |config|
   def get_testing_image
     File.new Rails.root.join(testing_image_path)
   end
+
+  def get_attachment_file
+    File.new Rails.root.join("../support/test-pdf.pdf")
+  end
 end

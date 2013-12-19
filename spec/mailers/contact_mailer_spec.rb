@@ -27,22 +27,4 @@ describe 'Trim::ContactMailer' do
     end
   end
 
-  context 'with attachment' do
-    before :each do
-      @setting = Trim::Setting.first || Trim::Setting.make!
-      @message  = Trim::ContactMessage.make! :with_attachment
-    end
-
-    it 'should send the attachment with the email' do
-      @mail = Trim::ContactMailer.contact_email(@message)
-
-      @mail.attachments.should have(1).attachment
-      
-      attachment = @mail.attachments[0]
-      attachment.content_type.should be_start_with('image/jpeg')
-      attachment.filename.should == 'test-image.jpg'
-    end
-
-  end
-
 end

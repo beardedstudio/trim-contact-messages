@@ -1,17 +1,18 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "trim-contact-messages/version"
+require "trim/contact-messages/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "trim-contact-messages"
-  s.version     = TrimContactMessages::VERSION
-  s.authors     = ["Mark Frey, Brett Bender, Dominic Dagradi, Michael Hellein"]
+  s.version     = Trim::ContactMessages::VERSION
+  s.authors     = ["Brett Bender", "Mark Frey", "Patrick Fulton", "Dominic Dagradi"]
   s.email       = ["info@bearded.com"]
   s.homepage    = "http://www.bearded.com"
   s.summary     = "A simple contact form for Trim."
   s.description = "A simple contact form for Trim."
+  s.require_paths = ['lib']
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 

@@ -1,9 +1,5 @@
 require 'machinist/active_record'
 
-Trim::ContactAttachment.blueprint do
-  attachment { get_testing_image }
-end
-
 Trim::ContactMessage.blueprint do
   contact_subject { Trim::ContactSubject.make! }
   name { "Submitter Name #{sn}" }
@@ -12,10 +8,6 @@ Trim::ContactMessage.blueprint do
   phone { '000.000.0000' }
   user_agent { 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11' }
   user_ip { '127.0.0.1' }
-end
-
-Trim::ContactMessage.blueprint :with_attachment do
-  attachments { [ Trim::ContactAttachment.make ] }
 end
 
 Trim::ContactSubject.blueprint do
@@ -48,8 +40,4 @@ Trim::Setting.blueprint do
     send("#{name}_body") { Trim::Setting.email_placeholder_string name }
     send("#{name}_subject") { name }
   end
-end
-
-def get_testing_image
-  File.new Rails.root.join("../support/test-image.jpg")
 end

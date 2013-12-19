@@ -16,14 +16,9 @@ class ContactMessagesController < InheritedController
       end
       
       failure.html do
-        if @contact_message.errors.messages.has_key? :"attachments.attachment_content_type"
-          flash.now[:alert] = "You've added an invalid attachment file, please try again."
-        elsif @contact_message.errors.messages.has_key? :"attachments.attachment_file_size"
-          flash.now[:alert] = "You've added an attachment file that is too large, please try again."
-        else 
-          flash.now[:alert] = "There was a problem sending your message, please try again."
-        end
 
+        flash.now[:alert] = "There was a problem sending your message, please try again."
+        
         if request.referrer.blank? 
           render 'home/index'
         else

@@ -6,7 +6,8 @@ class ContactForm < Liquid::Tag
 
   def render(context)
     ctrl = context.environments.first[:controller]
-    ctrl.send(:render_to_string, :partial => 'trim/contact_messages/form', :locals => { :message => Trim::ContactMessage.new( :attachments => [Trim::ContactAttachment.new] ) })
+    
+    ctrl.send(:render_to_string, :partial => 'trim/contact_messages/form', :locals => { :message => Trim::ContactMessage.new })
   end
 
 end

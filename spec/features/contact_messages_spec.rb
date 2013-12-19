@@ -43,15 +43,6 @@ describe Trim::ContactMessage do
       end
     end
 
-    it 'should render one attachment field' do
-      within 'form#new_contact_message' do
-        page.should have_css 'fieldset#contact_message_attachments'
-        within '#contact_message_attachments' do
-          page.should have_css 'input[type="file"]', :count => 1
-        end
-      end
-    end
-
     it 'should render the submit button' do
       within 'form#new_contact_message' do
         page.should have_css 'input[type="submit"]'
@@ -85,16 +76,6 @@ describe Trim::ContactMessage do
       fill_in 'contact_message_message', :with => ''
       click_button 'Contact Us!'
       messages "There was a problem sending your message, please try again.", "error"
-    end
-
-    it 'should display an error message if an invalid attachment is uploaded' do
-      fill_in_form
-
-      path = Rails.root.join("spec/support/test-docx.docx")
-      attach_file("contact_message_attachments_attributes_0_attachment", path)
-
-      click_button 'Contact Us!'
-      messages "You've added an invalid attachment file, please try again.", "error"
     end
   end # /submission
 
