@@ -25,11 +25,6 @@ module Trim
       say "Added contact_subjects migration to db/migrate", MESSAGE_COLOR
     end
 
-    def add_route_for_contact_messages
-      route("resources :contact_messages, :only => :create")
-      say "Added contact_messages routes to config/routes.rb", MESSAGE_COLOR
-    end
-
     def create_rakismet_config
       sleep(2)
       create_file 'config/initializers/rakismet.rb'
