@@ -41,6 +41,7 @@ end
 
     def update_trim_config
       out = <<-out
+      
 
 
   ####
@@ -56,17 +57,8 @@ end
   ## or modified directly in config/initializers/rakismet.rb
 
   # config.use_akismet = false
-
-
-  ## Allow attachments for contact_messages
-
-  ## To enable attachments, you must set this value to true,
-  ## then run rails generate trim:contact_attachments to create a migration
-  ## then migrate your database.
-
-  # config.allow_attachments_for_contact_messages = false
       out
-      insert_into_file 'config/initializers/trim.rb', out, :after => "  # Use this file to override Trim's default settings."
+      insert_into_file 'config/initializers/trim.rb', out, :after => "Trim.setup do |config|"
     end
 
     def migrate
