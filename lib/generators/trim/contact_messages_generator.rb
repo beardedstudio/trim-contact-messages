@@ -41,6 +41,7 @@ end
 
     def update_trim_config
       out = <<-out
+      
 
 
   ####
@@ -57,7 +58,7 @@ end
 
   # config.use_akismet = false
       out
-      insert_into_file 'config/initializers/trim.rb', out, :after => "  # Use this file to override Trim's default settings."
+      insert_into_file 'config/initializers/trim.rb', out, :after => "Trim.setup do |config|"
     end
 
     def migrate
