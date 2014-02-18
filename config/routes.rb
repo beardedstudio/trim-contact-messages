@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :contact_messages, :only => :create
+  scope module: 'trim' do
+    resources :contact_messages, :only => :create
+  end
 end
