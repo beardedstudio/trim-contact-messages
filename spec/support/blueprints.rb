@@ -25,7 +25,7 @@ Trim::Page.blueprint :with_contact_form do
 end
 
 Trim::Setting.blueprint do
-  twitter_name { 'beardedstudio' }
+  twitter_url { 'http://twitter.com/beardedstudio' }
   facebook_url { 'https://www.facebook.com/beardedstudio' }
   street_address { '6101 Penn Avenue, Suite 302' }
   city { 'Pittsburgh' }

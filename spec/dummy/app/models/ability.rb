@@ -8,6 +8,7 @@ class Ability
     else
       can :show, Trim::NavItem
       can :show, Trim::Page, :is_private => false
+      can :create, Trim::ContactMessage
     end
   end
 end

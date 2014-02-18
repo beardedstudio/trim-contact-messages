@@ -1,17 +1,7 @@
 Dummy::Application.routes.draw do
-  resources :contact_messages, :only => :create
-
   devise_for :users
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
-  resources :nav_items, :only => :show
-
-  resources :pages, :only => :show
-
-  root to: 'home#index'
-
-  filter :navigation
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
