@@ -2,7 +2,7 @@ module Trim
   class ContactMessage < ActiveRecord::Base
 
     attr_accessible :name, :message, :contact_subject_id, :phone, :email, 
-                    :user_agent, :user_ip
+                    :user_agent, :user_ip, :as => :admin
 
     belongs_to :contact_subject, :class_name => 'Trim::ContactSubject', :inverse_of => :contact_messages
 
