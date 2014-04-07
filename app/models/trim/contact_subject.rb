@@ -3,7 +3,7 @@ module Trim
 
     has_many :contact_messages, :class_name => 'Trim::ContactMessage', :inverse_of => :contact_subjects
 
-    attr_accessible :name, :email
+    attr_accessible :name, :email, :as => :admin
 
     validates :name, :presence => true
 
