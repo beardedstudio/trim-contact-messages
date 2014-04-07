@@ -1,8 +1,10 @@
-= semantic_form_for message, :url => Rails.application.routes.url_helpers.contact_messages_path do |f| 
-  = f.input :name
-  = f.input :email
-  = f.input :phone
-  = f.input :contact_subject, :as => :select, :collection => Trim::ContactSubject.all.map{|s| [s.name, s.id]}, :prompt => "Subject", :label => false
-  = f.input :message
+- subjects = Trim::ContactSubject.all
+- if subjects.any?
+  = semantic_form_for message, :url => Rails.application.routes.url_helpers.contact_messages_path do |f| 
+    = f.input :name
+    = f.input :email
+    = f.input :phone
+    = f.input :contact_subject, :as => :select, :collection => subjects.map{|s| [s.name, s.id]}, :prompt => "Subject", :label => false
+    = f.input :message
 
-  = f.action :submit, label: "Contact Us!"
+    = f.action :submit, label: "Contact Us!"
