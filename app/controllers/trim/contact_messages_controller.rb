@@ -7,7 +7,7 @@ module Trim
       params[:contact_message][:user_agent] = request.user_agent
       params[:contact_message][:user_ip] = request.remote_ip
 
-      @contact_message = Trim::ContactMessage.create(params[:contact_message])
+      @contact_message = Trim::ContactMessage.create(params[:contact_message], :as => :admin)
 
       create! do |success, failure|
         
