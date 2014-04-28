@@ -16,15 +16,17 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
+  s.add_dependency  'rails',    '~> 3.2.16'
+  s.add_dependency  'trim',     '~> 0.6.2'
   s.add_dependency  'rails', '~> 3.2.16'
-  s.add_dependency  'trim', '~> 0.5.4'
+  s.add_dependency  'trim', '~> 0.6'
   s.add_dependency  'rakismet', '~> 1.4.0'
 
   s.add_development_dependency  'rspec-rails'
   s.add_development_dependency  'capybara'
   s.add_development_dependency  'machinist'
   s.add_development_dependency  'database_cleaner'
-  s.add_development_dependency  'colored'   
+  s.add_development_dependency  'colored'
   s.add_development_dependency  'launchy'
   s.add_development_dependency  'sqlite3'
 

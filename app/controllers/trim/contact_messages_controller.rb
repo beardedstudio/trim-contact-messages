@@ -9,35 +9,28 @@ module Trim
 
       @contact_message = Trim::ContactMessage.create(params[:contact_message], :as => :admin)
 
-      create! do |success, failure|
-        
+      create! do |success, failure|       
         success.html do
           flash[:notice] = "Thanks for contacting us!"
-          redirect_to request.referrer.blank? ? root_path : request.referrer
+          redirect_to redirect_destination
         end
         
         failure.html do
-
-          flash.now[:alert] = "There was a problem sending your message, please try again."
-          
-          if request.referrer.blank? 
-            render 'trim/home/index'
-          else
-            # get path, remove leading /
-            path = URI(request.referrer).path
-            path[0] = ''
-
-            nav_item = Trim::NavItem.find_by_nav_path(path)
-
-            if nav_item.nil? || nav_item.linked.blank? 
-              render 'trim/home/index'
-            else
-              @page = nav_item.linked
-              render 'trim/pages/show', :object => @page
-            end
-          end
+          flash[:alert] = "There was a problem sending your message, please try again."
+          redirect_to redirect_destination
         end
       end 
     end
+
+    def redirect_destination
+      if session.key?(:return_to_contact_form) && !session[:return_to_contact_form].blank?
+        session[:return_to_contact_form]
+      elsif !request.referrer.blank?
+        request.referrer
+      else
+        root_path
+      end
+    end
+
   end
 end

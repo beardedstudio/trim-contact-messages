@@ -1,22 +1,24 @@
 PATH
   remote: .
   specs:
-    trim-contact-messages (0.2.2)
+    trim-contact-messages (0.2.4)
+      rails (~> 3.2.16)
       rails (~> 3.2.16)
       rakismet (~> 1.4.0)
-      trim (~> 0.5.4)
+      trim (~> 0.6)
+      trim (~> 0.6.2)
 
 PATH
   remote: ../trim
   specs:
-    trim (0.5.4)
+    trim (0.6.2)
       ancestry (~> 2.0.0)
       aws-sdk (~> 1.29.1)
       breakpoint (~> 2.0.7)
       cancan (~> 1.6.10)
       ckeditor (~> 4.0.6)
       compass-rails (~> 1.1.2)
-      devise (~> 3.2.2)
+      devise (~> 3.2.4)
       formtastic (~> 2.2.1)
       friendly_id (~> 4.0.10.1)
       haml-rails (~> 0.4)
