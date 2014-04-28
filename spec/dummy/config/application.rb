@@ -4,6 +4,7 @@ require 'rails/all'
 
 Bundler.require(*Rails.groups)
 require "trim"
+require "trim-contact-messages"
 
 module Dummy
   class Application < Rails::Application

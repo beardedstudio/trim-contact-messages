@@ -78,9 +78,9 @@ Trim.setup do |config|
   ##   Nav :main has priority -1.  In general, all additional navs should have a larger priority
   ##   value than this, though there may be edge cases.  New navs default to priority 0.
 
-  ## config.navs = [ 
-  ##   { :title => 'Secondary Navigation', :slug => :secondary }, 
-  ##   { :title => 'Less Important Menu', :slug => :tertiary, :priority => 99 } 
+  ## config.navs = [
+  ##   { :title => 'Secondary Navigation', :slug => :secondary },
+  ##   { :title => 'Less Important Menu', :slug => :tertiary, :priority => 99 }
   ## ]
 
 
@@ -101,14 +101,13 @@ Trim.setup do |config|
   ## This will instruct Trim that nav items using the "Profiles List" route should
   ## call profiles_path (or profiles_url) to generate their url.
 
-
   ####
   #
   #  Additional Settings
   #
   ####
 
-  ## The Trim::Settings model contains some common settings, 
+  ## The Trim::Settings model contains some common settings,
   ## but most apps will want to define additional settings here.
 
   # config.additional_settings = [ :setting_1, :setting_2 ]

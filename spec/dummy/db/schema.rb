@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226182408) do
+ActiveRecord::Schema.define(:version => 20140428174956) do
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20140226182408) do
   create_table "trim_lead_images", :force => true do |t|
     t.integer  "imageable_id",                       :null => false
     t.string   "imageable_type",                     :null => false
+    t.string   "caption"
     t.string   "alt_text",           :default => "", :null => false
     t.string   "image_file_name",                    :null => false
     t.integer  "image_file_size",                    :null => false
