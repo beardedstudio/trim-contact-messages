@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    trim-contact-messages (0.2.2)
+    trim-contact-messages (0.2.3)
       rails (~> 3.2.16)
       rakismet (~> 1.4.0)
-      trim (~> 0.6.2)
+      trim (~> 0.6)
 
 PATH
   remote: ../trim
