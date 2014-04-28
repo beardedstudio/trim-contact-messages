@@ -1,17 +1,15 @@
 PATH
   remote: .
   specs:
-    trim-contact-messages (0.2.4)
-      rails (~> 3.2.16)
+    trim-contact-messages (0.2.5)
       rails (~> 3.2.16)
       rakismet (~> 1.4.0)
       trim (~> 0.6)
-      trim (~> 0.6.2)
 
 PATH
   remote: ../trim
   specs:
-    trim (0.6.2)
+    trim (0.6.3)
       ancestry (~> 2.0.0)
       aws-sdk (~> 1.29.1)
       breakpoint (~> 2.0.7)
