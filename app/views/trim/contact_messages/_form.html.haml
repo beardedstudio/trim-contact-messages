@@ -1,4 +1,5 @@
 - subjects = Trim::ContactSubject.all
+- session[:return_to_contact_form] = request.request_uri if request.key?(:request_uri)
 - if subjects.any?
   = semantic_form_for message, :url => Rails.application.routes.url_helpers.contact_messages_path do |f| 
     = f.input :name
